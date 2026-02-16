@@ -1,6 +1,6 @@
 # Dashboard Design
 
-![Dashboard Screenshot](resources/full%20ui.png.png)
+![Dashboard Screenshot](resources/fullui.png)
 
 A clean and modern **dashboard UI design** created with HTML and CSS. This project focuses on layout, color scheme, and user interface elements rather than backend functionality.  
 
