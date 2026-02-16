@@ -1,67 +1,319 @@
+/* ==========================
+   VARIABLES
+========================== */
+:root {
+  --primary-color: rgb(0, 173, 241); /* Sidebar / buttons */
+  --secondary-color: rgb(255, 200, 0); /* Card accent */
+  --background-color: rgb(210, 219, 227); /* Main background */
+  --card-bg: white;
+  --text-color: #333;
+  --sidebar-text: white;
+  --sidebar-hover: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================
+   GLOBAL RESET
+========================== */
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
-.container{
-    display: grid;
-    grid-template-columns: 1fr repeat(1 , 4fr);
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
-.sidebar{
-    background-color: rgb(28, 160, 204);
-    grid-column: 1 / 2;
-    grid-row: 1 / 3;
+/* ==========================
+   CONTAINER GRID
+========================== */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
 }
 
-.header{
-    grid-column: 2 / 3;
-    display: grid;
+/* ==========================
+   SIDEBAR
+========================== */
+.sidebar {
+  background-color: var(--primary-color);
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 40px;
 }
 
-.search{
-    grid-column: 1 / 2;
-    display: flex;
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--sidebar-text);
 }
 
-.profile{
-    display: flex;
+.sidebar-header .material-symbols-outlined {
+  font-size: 50px;
 }
 
-.action-bar{
-    grid-column: 1 / 3;
-    display: flex;
-    justify-content: space-between;
+.side-content div,
+.setting-support div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 0;
+  cursor: pointer;
+  color: var(--sidebar-text);
+  transition: background 0.3s, border-radius 0.3s;
 }
 
-.greating{
-    display: flex;
+.side-content div:hover,
+.setting-support div:hover {
+  background-color: var(--sidebar-hover);
+  border-radius: 8px;
 }
 
-
-.main-content{
-    display: grid;
-    grid-template-columns: repeat(1, 3fr) 1fr;
-    background-color: rgb(129, 158, 167);
-    grid-column: 2 / 3;
+/* ==========================
+   HEADER
+========================== */
+.header {
+  grid-column: 2 / 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 10;
 }
 
-.projects{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column: 1 / 2;
-    gap: 15px;
+.search {
+  display: flex;
+  align-items: center;
+  padding: 15px 45px;
+  gap: 15px;
+}
+
+.search input {
+  width: 40vw;
+  padding: 5px 15px;
+  border-radius: 50px;
+  border: none;
+  background-color: rgb(210, 219, 227);
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+/* ==========================
+   PROFILE SECTION
+========================== */
+.profile {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: end;
+  padding: 15px;
+  padding-right: 45px;
+
+}
+
+.profile img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+/* ==========================
+   ACTION BAR
+========================== */
+.action-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 45px;
+  grid-column: 1 / 3;
+}
+
+.greating {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.greating > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.greating img {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.action-buttons button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 8px 25px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.action-buttons button:hover {
+  background-color: rgb(0, 150, 210);
+}
+
+/* ==========================
+   MAIN CONTENT
+========================== */
+.main-content {
+  grid-column: 2 / 3;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 15px;
+  padding: 15px;
+  background-color: var(--background-color);
+}
+
+/* ==========================
+   PROJECTS GRID
+========================== */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
 }
 
 .project-header{
-    grid-column: 1 / 3;
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: end;
+    padding-top: 15px;
 }
 
-.project-card{
-    height: 200px;
-    background-color: white;
+.project-card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  border-left: 8px solid var(--secondary-color);
+  padding: 15px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow:
+      0 1px 2px rgba(0,0,0,0.05),
+      0 4px 8px rgba(0,0,0,0.08),
+      0 8px 16px rgba(0,0,0,0.06);
+  transition: transform 0.2s;
 }
 
-.right-contentbar{
-    grid-column: 2 / 3;
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-controls {
+  display: flex;
+  justify-content: end;
+  gap: 15px;
+}
+
+.project-controls button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+/* ==========================
+   RIGHT CONTENT BAR
+========================== */
+.right-contentbar {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.anounce-header{
+    padding-bottom: 15px;
+}
+
+.announce-content{
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.announcement h6 {
+  font-weight: bold;
+}
+
+.announcement p,
+.trend p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.trend {
+  background-color: var(--card-bg);
+    display: flex;
+    gap: 15px;
+}
+
+.trend-profiles{
+    padding: 15px;
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+}
+
+.trending-header{
+    padding-bottom: 15px;
+}
+
+.profile-logo > img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.profile-id{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ==========================
+   UTILITY
+========================== */
+hr {
+  border: none;
+  border-top: 1px solid #eee;
+}
+
+button h3 {
+  margin: 0;
 }
