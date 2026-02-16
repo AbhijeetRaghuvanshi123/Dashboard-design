@@ -29,17 +29,17 @@ A clean and modern **dashboard UI design** created with HTML and CSS. This proje
 
 ## Folder Structure
 
-/dashboard-design
-│
-├─ index.html
-├─ style.css
-├─ resources/
-│ ├─ profile.png
-│ ├─ profile1.png
-│ ├─ profile2.png
-│ ├─ profile3.png
-│ ├─ profile4.png
-│ └─ dashboard-screenshot.png
+- /dashboard-design
+- │
+- ├─ index.html
+- ├─ style.css
+- ├─ resources/
+- │      ├─ profile.png
+- │      ├─ profile1.png
+- │      ├─ profile2.png
+- │      ├─ profile3.png
+- │      ├─ profile4.png
+- │      └─ dashboard-screenshot.png
 
 
 ---
